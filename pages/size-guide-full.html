@@ -22,16 +22,38 @@
 <div class="shg-box-overlay"><br></div>
 <div class="shg-box-content">
 <div class="shg-c shg-align-left" id="s-f859c6a0-5432-40b1-9fa2-cf440032c0eb">
+<style>
+#sg-size-tab-mens:checked ~ .shogun-tabs-body #panel-573030cc-5fb9-46ac-ad58-20ed5df58f19,
+#sg-size-tab-womens:checked ~ .shogun-tabs-body #panel-c97482f8-b8d2-4488-be5b-4d733f6831ae,
+#sg-size-tab-youth:checked ~ .shogun-tabs-body #panel-6ddb3aa2-888d-407d-aebe-caec792daf46 {
+display: block !important;
+}
+#sg-size-tab-mens:checked ~ ul.shogun-tabs label[for="sg-size-tab-mens"] .shogun-tab-box,
+#sg-size-tab-womens:checked ~ ul.shogun-tabs label[for="sg-size-tab-womens"] .shogun-tab-box,
+#sg-size-tab-youth:checked ~ ul.shogun-tabs label[for="sg-size-tab-youth"] .shogun-tab-box {
+background-color: #eeeeee;
+border-radius: 6px;
+}
+</style>
 <div>
+<input type="radio" name="sg-size-guide-tab" id="sg-size-tab-mens" checked style="display:none;">
+<input type="radio" name="sg-size-guide-tab" id="sg-size-tab-womens" style="display:none;">
+<input type="radio" name="sg-size-guide-tab" id="sg-size-tab-youth" style="display:none;">
 <ul data-vthemes='{"default":"shogun-rounded"}' role="tablist" class="shogun-tabs shogun-rounded">
 <li aria-selected="true" aria-controls="panel-573030cc-5fb9-46ac-ad58-20ed5df58f19" role="tab" id="tab-573030cc-5fb9-46ac-ad58-20ed5df58f19" class="shogun-tab shogun-tab-active">
+<label for="sg-size-tab-mens" style="display:block; cursor:pointer;">
 <div class="shogun-tab-box"><span class="shogun-tab-title">MENS</span></div>
+</label>
 </li>
 <li aria-selected="false" aria-controls="panel-c97482f8-b8d2-4488-be5b-4d733f6831ae" role="tab" id="tab-c97482f8-b8d2-4488-be5b-4d733f6831ae" class="shogun-tab">
+<label for="sg-size-tab-womens" style="display:block; cursor:pointer;">
 <div class="shogun-tab-box"><span class="shogun-tab-title"> WOMENS </span></div>
+</label>
 </li>
 <li aria-selected="false" aria-controls="panel-6ddb3aa2-888d-407d-aebe-caec792daf46" role="tab" id="tab-6ddb3aa2-888d-407d-aebe-caec792daf46" class="shogun-tab">
+<label for="sg-size-tab-youth" style="display:block; cursor:pointer;">
 <div class="shogun-tab-box"><span class="shogun-tab-title"> YOUTH </span></div>
+</label>
 </li>
 </ul>
 <div class="shogun-tabs-body shogun-rounded">
@@ -1572,7 +1594,7 @@
 </div>
 </div>
 </div>
-<div aria-labelledby="tab-c97482f8-b8d2-4488-be5b-4d733f6831ae" role="tabpanel" id="panel-c97482f8-b8d2-4488-be5b-4d733f6831ae" class="shogun-tab-content">
+<div aria-labelledby="tab-c97482f8-b8d2-4488-be5b-4d733f6831ae" role="tabpanel" id="panel-c97482f8-b8d2-4488-be5b-4d733f6831ae" class="shogun-tab-content" style="display:none;">
 <div class="shg-box-vertical-align-wrapper">
 <div id="s-0003d5d1-ac12-46aa-94d6-1d1140b79e11" class="shg-box shg-c">
 <div class="shg-box-overlay"><br></div>
@@ -2702,7 +2724,7 @@
 </div>
 </div>
 </div>
-<div aria-labelledby="tab-6ddb3aa2-888d-407d-aebe-caec792daf46" role="tabpanel" id="panel-6ddb3aa2-888d-407d-aebe-caec792daf46" class="shogun-tab-content">
+<div aria-labelledby="tab-6ddb3aa2-888d-407d-aebe-caec792daf46" role="tabpanel" id="panel-6ddb3aa2-888d-407d-aebe-caec792daf46" class="shogun-tab-content" style="display:none;">
 <div class="shg-box-vertical-align-wrapper">
 <div id="s-89da74e2-8d9b-4216-8155-98ed71e3f61f" class="shg-box shg-c">
 <div class="shg-box-overlay"><br></div>
