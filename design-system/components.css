@@ -1,0 +1,283 @@
+/* ============================================================
+   SUNDAY SWAGGER — COMPONENTS
+   Requires tokens.css.
+   NOTE: the brand guidelines define color, type and logo only. Every
+   component below is DESIGNED to fit the stated aesthetic ("clean, modern,
+   sleek... stark contrast... let the loud designs speak for themselves").
+   Confirm against the live storefront before shipping to production.
+   ============================================================ */
+
+/* ---------- BASE ---------- */
+.ss { 
+  font-family: var(--ss-font-body);
+  font-weight: var(--ss-weight-body);
+  font-size: var(--ss-text-base);
+  line-height: var(--ss-leading-body);
+  letter-spacing: var(--ss-tracking-body);
+  color: var(--ss-text);
+  background: var(--ss-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+/* Display — Futura PT Condensed Extra Bold, ALWAYS UPPERCASE.
+   This is the brand's shout. One per screen, one per email, one per ad. */
+.ss-display {
+  font-family: var(--ss-font-display);
+  font-weight: var(--ss-weight-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ss-tracking-display);
+  line-height: var(--ss-leading-display);
+  margin: 0;
+}
+.ss-display--hero { font-size: clamp(48px, 8vw, 96px); }
+.ss-display--xl   { font-size: clamp(36px, 5vw, 72px); }
+.ss-display--lg   { font-size: clamp(28px, 4vw, 56px); }
+.ss-display--md   { font-size: var(--ss-text-3xl); }
+
+/* Subhead — Lato Black, uppercase, no tracking. Sits above or below display. */
+.ss-subhead {
+  font-family: var(--ss-font-body);
+  font-weight: var(--ss-weight-subhead);
+  text-transform: uppercase;
+  letter-spacing: var(--ss-tracking-none);
+  line-height: var(--ss-leading-snug);
+  font-size: var(--ss-text-lg);
+  margin: 0;
+}
+
+/* Eyebrow — small all-caps label. Widest tracking in the system. */
+.ss-eyebrow {
+  font-family: var(--ss-font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ss-tracking-caps);
+  font-size: var(--ss-text-xs);
+  line-height: 1;
+  color: var(--ss-text-muted);
+}
+
+/* Body — Lato Medium, sentence case, 1.6 leading. */
+.ss-body   { font-size: var(--ss-text-base); max-width: var(--ss-container-text); margin: 0; }
+.ss-body--lg { font-size: var(--ss-text-md); }
+.ss-body--sm { font-size: var(--ss-text-sm); }
+
+/* Script accent — Starlit Drive. Lowercase, one or two words, never a sentence,
+   never body copy, never below ~28px. Prefer exporting as artwork. */
+.ss-script {
+  font-family: var(--ss-font-script);
+  text-transform: lowercase;
+  letter-spacing: var(--ss-tracking-none);
+  font-size: var(--ss-text-4xl);
+  line-height: 1;
+}
+
+/* Section rule — heading + hairline, as used on the live storefront. */
+.ss-section-head { display: flex; align-items: center; gap: var(--ss-space-4); }
+.ss-section-head > .ss-rule { flex: 1; height: 1px; background: var(--ss-neutral-500); }
+
+/* ============================================================
+   BUTTONS
+   Square-ish, uppercase, tracked-out. Contrast does the work.
+   ACCESSIBILITY RULE: accent-filled buttons take BLACK label text.
+   White-on-blue (2.49:1) and white-on-green (1.22:1) fail WCAG AA.
+   ============================================================ */
+.ss-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ss-space-2);
+  font-family: var(--ss-font-body);
+  font-weight: 900;
+  font-size: var(--ss-text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--ss-tracking-caps);
+  line-height: 1;
+  text-decoration: none;
+  padding: 16px 32px;         /* md */
+  min-height: 48px;           /* touch target */
+  border: var(--ss-border-thick) solid transparent;
+  border-radius: var(--ss-radius-md);
+  cursor: pointer;
+  transition: background var(--ss-duration) var(--ss-ease),
+              color var(--ss-duration) var(--ss-ease),
+              border-color var(--ss-duration) var(--ss-ease),
+              transform var(--ss-duration-fast) var(--ss-ease);
+}
+.ss-btn:active { transform: translateY(1px); }
+.ss-btn:focus-visible {
+  outline: var(--ss-border-heavy) solid var(--ss-blue);
+  outline-offset: 2px;
+}
+.ss-btn[disabled], .ss-btn--disabled {
+  background: var(--ss-neutral-300);
+  color: var(--ss-neutral-700);
+  border-color: var(--ss-neutral-300);
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.ss-btn--sm { padding: 10px 20px; min-height: 40px; font-size: var(--ss-text-xs); }
+.ss-btn--lg { padding: 20px 44px; min-height: 56px; font-size: var(--ss-text-base); }
+.ss-btn--block { display: flex; width: 100%; }
+
+/* Primary — black fill. The default CTA everywhere. */
+.ss-btn--primary { background: var(--ss-black); color: var(--ss-white); border-color: var(--ss-black); }
+.ss-btn--primary:hover { background: var(--ss-neutral-800); border-color: var(--ss-neutral-800); }
+
+/* Primary on dark — white fill. */
+.ss-btn--primary-invert { background: var(--ss-white); color: var(--ss-black); border-color: var(--ss-white); }
+.ss-btn--primary-invert:hover { background: var(--ss-neutral-200); border-color: var(--ss-neutral-200); }
+
+/* Secondary — outline. */
+.ss-btn--secondary { background: transparent; color: var(--ss-black); border-color: var(--ss-black); }
+.ss-btn--secondary:hover { background: var(--ss-black); color: var(--ss-white); }
+.ss-btn--secondary-invert { background: transparent; color: var(--ss-white); border-color: var(--ss-white); }
+.ss-btn--secondary-invert:hover { background: var(--ss-white); color: var(--ss-black); }
+
+/* Accent — sparingly. One per screen, for the single loudest action
+   (drop launch, sale, last chance). Label text stays BLACK. */
+.ss-btn--blue  { background: var(--ss-blue);  color: var(--ss-black); border-color: var(--ss-blue); }
+.ss-btn--green { background: var(--ss-green); color: var(--ss-black); border-color: var(--ss-green); }
+.ss-btn--pink  { background: var(--ss-pink);  color: var(--ss-black); border-color: var(--ss-pink); }
+
+/* Sticker — hard offset shadow. High-energy promo only (ads, drop banners). */
+.ss-btn--sticker {
+  border-radius: var(--ss-radius-sm);
+  box-shadow: var(--ss-shadow-hard);
+  transition: box-shadow var(--ss-duration-fast) var(--ss-ease), transform var(--ss-duration-fast) var(--ss-ease);
+}
+.ss-btn--sticker:hover  { box-shadow: 2px 2px 0 var(--ss-black); transform: translate(2px, 2px); }
+.ss-btn--sticker:active { box-shadow: 0 0 0 var(--ss-black);     transform: translate(4px, 4px); }
+
+/* Text link */
+.ss-link {
+  color: var(--ss-black);
+  text-decoration: none;
+  border-bottom: var(--ss-border-thick) solid var(--ss-black);
+  padding-bottom: 1px;
+  font-weight: 700;
+}
+.ss-link:hover { border-bottom-color: var(--ss-blue); }
+
+/* ============================================================
+   BADGES
+   ============================================================ */
+.ss-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--ss-font-body);
+  font-weight: 900;
+  font-size: var(--ss-text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--ss-tracking-caps);
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: var(--ss-radius-pill);
+  color: var(--ss-black);
+  background: var(--ss-grey);
+}
+.ss-badge--black { background: var(--ss-black); color: var(--ss-white); }
+.ss-badge--blue  { background: var(--ss-blue);  color: var(--ss-black); }
+.ss-badge--green { background: var(--ss-green); color: var(--ss-black); }
+.ss-badge--pink  { background: var(--ss-pink);  color: var(--ss-black); }
+.ss-badge--square { border-radius: var(--ss-radius-sm); }
+
+/* ============================================================
+   PRODUCT CARD
+   Image does the talking; chrome stays out of the way.
+   ============================================================ */
+.ss-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ss-space-3);
+  background: var(--ss-surface);
+}
+.ss-card__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--ss-grey);
+  border-radius: var(--ss-radius-md);
+}
+.ss-card__media img { width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform var(--ss-duration-slow) var(--ss-ease); }
+.ss-card:hover .ss-card__media img { transform: scale(1.03); }
+.ss-card__flag { position: absolute; top: var(--ss-space-3); left: var(--ss-space-3); }
+.ss-card__title {
+  font-family: var(--ss-font-body); font-weight: 900; text-transform: uppercase;
+  font-size: var(--ss-text-sm); letter-spacing: var(--ss-tracking-none);
+  line-height: var(--ss-leading-snug); margin: 0;
+}
+.ss-card__price { font-size: var(--ss-text-sm); font-weight: 500; margin: 0; }
+.ss-card__price s { color: var(--ss-text-muted); margin-right: var(--ss-space-2); }
+
+/* ============================================================
+   ANNOUNCEMENT BAR / PROMO STRIP
+   The one place accent color may run full-bleed.
+   ============================================================ */
+.ss-announce {
+  background: var(--ss-black);
+  color: var(--ss-white);
+  text-align: center;
+  padding: var(--ss-space-3) var(--ss-space-4);
+  font-family: var(--ss-font-body);
+  font-weight: 900;
+  font-size: var(--ss-text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--ss-tracking-caps);
+}
+.ss-announce--blue  { background: var(--ss-blue);  color: var(--ss-black); }
+.ss-announce--green { background: var(--ss-green); color: var(--ss-black); }
+.ss-announce--pink  { background: var(--ss-pink);  color: var(--ss-black); }
+
+/* ============================================================
+   TABLE — matches the production size-guide tables
+   ============================================================ */
+.ss-table { width: 100%; border-collapse: collapse; border: 1px solid var(--ss-neutral-400); }
+.ss-table th {
+  background: var(--ss-neutral-100);
+  padding: 16px 12px; text-align: center;
+  font-family: var(--ss-font-body-site);
+  font-weight: 700; font-size: var(--ss-text-sm);
+  border-right: 1px solid var(--ss-neutral-400);
+}
+.ss-table td {
+  padding: 16px 12px; text-align: center;
+  font-family: var(--ss-font-body-site); font-size: var(--ss-text-md);
+  border-bottom: 1px solid var(--ss-neutral-300);
+  border-right: 1px solid var(--ss-neutral-400);
+}
+.ss-table th:last-child, .ss-table td:last-child { border-right: 0; }
+
+/* ============================================================
+   FORM INPUT
+   ============================================================ */
+.ss-input {
+  width: 100%;
+  font-family: var(--ss-font-body); font-size: var(--ss-text-base);
+  padding: 14px 16px; min-height: 48px;
+  color: var(--ss-text); background: var(--ss-white);
+  border: var(--ss-border-hair) solid var(--ss-neutral-500);
+  border-radius: var(--ss-radius-md);
+}
+.ss-input::placeholder { color: var(--ss-text-muted); }
+.ss-input:focus { outline: none; border-color: var(--ss-black); box-shadow: 0 0 0 2px var(--ss-black); }
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.ss-section        { padding: var(--ss-space-10) var(--ss-gutter); }
+.ss-section--tight { padding: var(--ss-space-8) var(--ss-gutter); }
+.ss-section--dark  { background: var(--ss-black); color: var(--ss-white); }
+.ss-section--grey  { background: var(--ss-grey); }
+.ss-container      { max-width: var(--ss-container); margin-inline: auto; }
+
+/* Accent underline — the guidelines' named use for blue/green/pink:
+   "lines or accents on specific design elements or words in copy." */
+.ss-underline-blue  { box-shadow: inset 0 -0.28em 0 var(--ss-blue); }
+.ss-underline-green { box-shadow: inset 0 -0.28em 0 var(--ss-green); }
+.ss-underline-pink  { box-shadow: inset 0 -0.28em 0 var(--ss-pink); }

@@ -1,0 +1,180 @@
+/* ============================================================
+   SUNDAY SWAGGER — DESIGN TOKENS
+   Source of truth: Brand Guidelines (8pp) + live-site evidence.
+   Confidence is marked per block:
+     [BRAND]  = lifted directly from the brand guidelines PDF
+     [SITE]   = observed in production Sunday Swagger page markup
+     [SYSTEM] = designed here to fill a gap the guidelines don't cover
+   ============================================================ */
+
+:root {
+
+  /* ---------- COLOR — PRIMARY [BRAND] ----------
+     Black + white are the brand. Everything else is an accent. */
+  --ss-black:            #000000;  /* CMYK 0/0/0/100 */
+  --ss-white:            #FFFFFF;  /* CMYK 0/0/0/0   */
+
+  /* ---------- COLOR — SECONDARY [BRAND] ---------- */
+  --ss-grey:             #ECECEC;  /* CMYK 6/4/4/0 — backgrounds only, never type */
+
+  /* ---------- COLOR — TERTIARY ACCENTS [BRAND] ----------
+     "Used sparingly, as accents." Lines, underlines, single words, badges. */
+  --ss-blue:             #00B3D8;  /* CMYK 77/4/11/0  */
+  --ss-green:            #C2FC08;  /* CMYK 29/0/100/0 */
+  --ss-pink:             #EE4492;  /* CMYK 0/88/4/0   */
+
+  /* ---------- COLOR — PRINT SWATCH BUILDS [BRAND, reference only] ----------
+     The printed swatches in the guidelines render slightly differently from the
+     spec'd hex (CMYK conversion). Use the hex above for anything digital;
+     these are here only so print vendors and screen output can be reconciled. */
+  --ss-blue-print:       #1CBFD5;
+  --ss-green-print:      #B0D235;
+  --ss-pink-print:       #EC048C;
+
+  /* ---------- COLOR — NEUTRAL UI RAMP [SITE + SYSTEM] ----------
+     100/200/300 are measured from live Sunday Swagger page markup.
+     The rest fill out the ramp so tables, borders and disabled states
+     have somewhere to land. */
+  --ss-neutral-50:       #F7F7F7;
+  --ss-neutral-100:      #F2F2F2;  /* [SITE] table header fill */
+  --ss-neutral-200:      #ECECEC;  /* = --ss-grey [BRAND] */
+  --ss-neutral-300:      #E5E5E5;  /* [SITE] row divider */
+  --ss-neutral-400:      #E0E0E0;  /* [SITE] table border */
+  --ss-neutral-500:      #D9D9D9;  /* [SITE] hairline rule */
+  --ss-neutral-600:      #999B9E;  /* [BRAND] guide/annotation grey */
+  --ss-neutral-700:      #6B6D70;
+  --ss-neutral-800:      #3A3B3D;
+  --ss-neutral-900:      #231F20;  /* [BRAND] rich black used in logo artwork */
+
+  /* ---------- COLOR — SEMANTIC [SYSTEM] ----------
+     Deliberately narrow. Success borrows brand green only where it sits on
+     black; on white it is unreadable, so a darker green is provided. */
+  --ss-success:          #1E8E3E;
+  --ss-success-on-dark:  var(--ss-green);
+  --ss-warning:          #B45309;
+  --ss-error:            #C81E4A;
+  --ss-info:             #0E7C93;  /* darkened blue, AA on white */
+
+  /* ---------- COLOR — SURFACES & TEXT [SYSTEM] ---------- */
+  --ss-surface:          var(--ss-white);
+  --ss-surface-alt:      var(--ss-grey);
+  --ss-surface-invert:   var(--ss-black);
+  --ss-text:             var(--ss-black);
+  --ss-text-muted:       var(--ss-neutral-700);
+  --ss-text-invert:      var(--ss-white);
+  --ss-border:           var(--ss-neutral-400);
+  --ss-border-strong:    var(--ss-black);
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+
+  /* ---------- FONT FAMILIES [BRAND] ----------
+     Primary display : Futura PT Condensed Extra Bold  (Adobe Fonts)
+     Web alternate   : Tilt Warp                        (Google Fonts, free)
+     Secondary/script: Starlit Drive                    (logo font — artwork only)
+     Body / tertiary : Lato                             (Google Fonts, free)     */
+  --ss-font-display:  "Futura PT Condensed", "FuturaPTCond-ExtraBold", "Tilt Warp", "Oswald", "Arial Narrow", Arial, sans-serif;
+  --ss-font-display-web: "Tilt Warp", "Futura PT Condensed", "Arial Narrow", Arial, sans-serif;
+  --ss-font-script:   "Starlit Drive", "Brush Script MT", cursive;   /* set as artwork, not live text */
+  --ss-font-body:     "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* [SITE] The production storefront currently renders body copy in Work Sans.
+     Use this stack when EDITING existing pages so new blocks blend in; use
+     --ss-font-body for anything new or rebuilt. See DESIGN-SYSTEM.md §3.4. */
+  --ss-font-body-site: "Work Sans", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* ---------- FONT WEIGHTS [BRAND] ---------- */
+  --ss-weight-body:      500;  /* Lato Medium — preferred body weight */
+  --ss-weight-subhead:   900;  /* Lato Black  — preferred subhead weight */
+  --ss-weight-display:   800;  /* Futura PT Cond Extra Bold */
+
+  /* ---------- TYPE SCALE [SYSTEM, derived from BRAND print specs] ----------
+     Print reference: Headline 62pt / Subtitle 30pt / Body 10pt @ 16pt leading.
+     Ratio headline:subtitle ~2.07. Web scale below preserves that jump. */
+  --ss-text-2xs:   11px;
+  --ss-text-xs:    12px;
+  --ss-text-sm:    14px;
+  --ss-text-base:  16px;
+  --ss-text-md:    18px;   /* [SITE] table body size */
+  --ss-text-lg:    20px;   /* [SITE] section heading size */
+  --ss-text-xl:    24px;
+  --ss-text-2xl:   32px;
+  --ss-text-3xl:   40px;
+  --ss-text-4xl:   56px;
+  --ss-text-5xl:   72px;
+  --ss-text-6xl:   96px;   /* hero display */
+
+  /* ---------- LINE HEIGHT [BRAND-derived] ----------
+     Guidelines body: 10pt type on 16pt leading = 1.6. */
+  --ss-leading-display: 0.92;  /* condensed caps stack tight */
+  --ss-leading-head:    1.1;
+  --ss-leading-snug:    1.3;   /* [SITE] section headings */
+  --ss-leading-body:    1.6;   /* [BRAND] */
+
+  /* ---------- LETTER SPACING [BRAND] ----------
+     InDesign tracking / 1000 = em. Headline tracking 10 -> 0.01em.
+     Body tracking 20 -> 0.02em. Display caps get a system-set wider option. */
+  --ss-tracking-display: 0.01em;   /* [BRAND] headline */
+  --ss-tracking-caps:    0.06em;   /* [SYSTEM] small caps labels, buttons, eyebrows */
+  --ss-tracking-body:    0.02em;   /* [BRAND] body copy */
+  --ss-tracking-none:    0;        /* [BRAND] Lato Black subtitle, Starlit accent */
+
+  /* ============================================================
+     SHAPE, SPACE, ELEVATION  [SYSTEM]
+     The guidelines are silent on all three. These are designed to match the
+     stated aesthetic: "clean, modern, sleek... stark contrast."
+     ============================================================ */
+
+  /* ---------- RADIUS ----------
+     Near-square by default. The brand's energy comes from contrast and the
+     script logo, not from soft corners. Pills are reserved for badges. */
+  --ss-radius-none:  0;
+  --ss-radius-sm:    2px;
+  --ss-radius-md:    4px;   /* default: buttons, inputs, cards */
+  --ss-radius-lg:    8px;   /* media tiles, modals */
+  --ss-radius-pill:  999px; /* badges, chips, filter pills only */
+
+  /* ---------- SPACING — 4px base ---------- */
+  --ss-space-1:   4px;
+  --ss-space-2:   8px;
+  --ss-space-3:   12px;
+  --ss-space-4:   16px;
+  --ss-space-5:   24px;
+  --ss-space-6:   32px;
+  --ss-space-7:   40px;
+  --ss-space-8:   56px;
+  --ss-space-9:   72px;
+  --ss-space-10:  96px;
+  --ss-space-11:  128px;
+
+  /* ---------- BORDER WIDTH ---------- */
+  --ss-border-hair:  1px;
+  --ss-border-thick: 2px;
+  --ss-border-heavy: 3px;   /* focus rings, active states */
+
+  /* ---------- ELEVATION ----------
+     Soft shadows are the restrained default. The HARD offset shadow is the
+     brand-expressive option: no blur, pure black, reads as print/sticker. */
+  --ss-shadow-none: none;
+  --ss-shadow-sm:   0 1px 2px rgba(0,0,0,.08);
+  --ss-shadow-md:   0 4px 12px rgba(0,0,0,.10);
+  --ss-shadow-lg:   0 12px 32px rgba(0,0,0,.14);
+  --ss-shadow-hard:       4px 4px 0 var(--ss-black);
+  --ss-shadow-hard-lg:    8px 8px 0 var(--ss-black);
+  --ss-shadow-hard-blue:  4px 4px 0 var(--ss-blue);
+  --ss-shadow-hard-green: 4px 4px 0 var(--ss-green);
+  --ss-shadow-hard-pink:  4px 4px 0 var(--ss-pink);
+
+  /* ---------- MOTION ---------- */
+  --ss-ease:          cubic-bezier(.2,.7,.3,1);
+  --ss-duration-fast: 120ms;
+  --ss-duration:      200ms;
+  --ss-duration-slow: 400ms;
+
+  /* ---------- LAYOUT ---------- */
+  --ss-container:       1280px;
+  --ss-container-text:  680px;   /* max measure for body copy */
+  --ss-gutter:          var(--ss-space-5);
+  --ss-email-width:     600px;
+}
