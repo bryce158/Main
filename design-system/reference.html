@@ -1,0 +1,699 @@
+<!-- Sunday Swagger design system — visual reference.
+     Open locally, or view the published version noted in README.md.
+     Logo paths are relative to design-system/assets/. -->
+<title>Sunday Swagger Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=Tilt+Warp&display=swap">
+<style>
+:root{
+  /* Ground is the exact black the brand book prints at, so pure #000000
+     stays legible as a swatch against it. */
+  --ground:#030405;
+  --ground-2:#0C0D0F;
+  --ink:#000000;
+  --paper:#FFFFFF;
+  --grey:#ECECEC;
+  --blue:#00B3D8;
+  --green:#C2FC08;
+  --pink:#EE4492;
+  --dim:#999B9E;      /* the guidelines' own annotation grey */
+  --dimmer:#6E7073;
+  --rule:#25262A;
+  --rule-2:#3A3C41;
+  --f-display:"Tilt Warp","Futura PT Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --measure:66ch;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;background:var(--ground);color:var(--paper);
+  font-family:var(--f-body);font-weight:400;font-size:16px;line-height:1.6;
+  letter-spacing:.02em;-webkit-font-smoothing:antialiased;
+}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+img{display:block}
+hr{border:0;border-top:1px solid var(--rule);margin:0}
+
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:28px}
+section{padding-block:76px;border-top:1px solid var(--rule)}
+section:first-of-type{border-top:0}
+
+/* ---- section marker: reuses the guidelines' own 0.01/0.02 pagination ---- */
+.marker{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
+.marker .n{font-family:var(--f-body);font-weight:900;font-size:12px;letter-spacing:.14em;
+  color:var(--dimmer);font-variant-numeric:tabular-nums}
+.marker .t{font-family:var(--f-body);font-weight:900;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim)}
+.marker .bar{flex:1;height:1px;background:var(--rule-2)}
+
+h2.sec{font-family:var(--f-body);font-weight:900;text-transform:uppercase;
+  font-size:clamp(24px,3.2vw,34px);line-height:1.15;letter-spacing:0;margin:0 0 18px;
+  text-wrap:balance}
+h3.sub{font-family:var(--f-body);font-weight:900;text-transform:uppercase;font-size:13px;
+  letter-spacing:.12em;color:var(--dim);margin:38px 0 14px}
+p{margin:0 0 14px;max-width:var(--measure);color:#DCDDDE}
+p.lead{font-size:18px;color:var(--paper)}
+strong{font-weight:900;color:var(--paper)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;
+  background:#17181B;border:1px solid var(--rule-2);border-radius:3px;padding:1px 5px;color:var(--grey)}
+
+/* ---------------- HERO ---------------- */
+.hero{padding:84px 0 68px}
+.hero__mark{width:min(420px,72vw);height:auto;margin-bottom:34px}
+.hero h1{font-family:var(--f-display);font-size:clamp(46px,9vw,112px);line-height:.9;
+  letter-spacing:.01em;text-transform:uppercase;margin:0 0 22px;text-wrap:balance}
+.hero h1 .hl{box-shadow:inset 0 -.22em 0 var(--blue)}
+.hero p{max-width:56ch;font-size:19px;color:#DCDDDE}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.meta span{font-weight:900;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid var(--rule-2);color:var(--dim);padding:7px 12px;border-radius:999px}
+
+/* ---------------- KEY / TAGS ---------------- */
+.keygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);margin-top:22px}
+.keygrid > div{background:var(--ground-2);padding:20px}
+.tag{display:inline-block;font-weight:900;font-size:11px;letter-spacing:.1em;
+  padding:4px 9px;border-radius:3px;margin-bottom:10px}
+.tag--brand{background:var(--paper);color:var(--ink)}
+.tag--site{background:var(--blue);color:var(--ink)}
+.tag--sys{background:var(--rule-2);color:var(--grey)}
+.keygrid p{margin:0;font-size:14px;color:var(--dim)}
+
+/* ---------------- SWATCHES ---------------- */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:14px;margin-top:8px}
+.sw{border:1px solid var(--rule-2);border-radius:4px;overflow:hidden;background:var(--ground-2)}
+.sw__chip{height:112px}
+.sw__body{padding:14px}
+.sw__name{font-weight:900;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.sw dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:12px;
+  font-variant-numeric:tabular-nums}
+.sw dt{color:var(--dimmer);font-weight:700}
+.sw dd{margin:0;color:var(--grey)}
+.sw__note{margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);
+  font-size:11.5px;line-height:1.45;color:var(--dim)}
+
+/* ---------------- CONTRAST PROOF ---------------- */
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:14px}
+.proof__cell{border-radius:4px;padding:22px 20px;min-height:150px;display:flex;
+  flex-direction:column;justify-content:space-between}
+.proof__cell .s{font-weight:900;font-size:19px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
+.proof__cell .r{font-size:12px;font-weight:900;letter-spacing:.09em;font-variant-numeric:tabular-nums;
+  display:flex;align-items:center;gap:8px}
+.verdict{font-size:10px;padding:3px 7px;border-radius:2px;letter-spacing:.1em}
+.v-pass{background:var(--ink);color:var(--green)}
+.v-fail{background:var(--ink);color:#FF6B6B}
+.v-warn{background:var(--ink);color:#FFC24B}
+.on-white .v-pass,.on-white .v-fail,.on-white .v-warn{background:var(--paper)}
+.on-white .v-pass{color:#1E8E3E}.on-white .v-fail{color:#C81E4A}.on-white .v-warn{color:#8A5B00}
+
+/* ---------------- TYPE SPECIMENS ---------------- */
+.spec{border:1px solid var(--rule-2);border-radius:4px;padding:26px;margin-bottom:14px;background:var(--ground-2)}
+.spec__label{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:11px;font-weight:900;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+.spec__label b{color:var(--paper);font-weight:900}
+.sp-display{font-family:var(--f-display);font-size:clamp(34px,5.6vw,64px);line-height:.92;
+  letter-spacing:.01em;text-transform:uppercase;margin:0}
+.sp-subhead{font-weight:900;font-size:clamp(20px,2.6vw,30px);text-transform:uppercase;
+  letter-spacing:0;line-height:1.3;margin:0}
+.sp-body{font-weight:500;font-size:16px;line-height:1.6;letter-spacing:.02em;margin:0;max-width:var(--measure);color:#DCDDDE}
+.sp-script{font-size:44px;line-height:1;font-style:italic;font-weight:400;color:var(--dim);margin:0}
+
+.scale{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.scale__row{background:var(--ground-2);display:grid;grid-template-columns:78px 1fr;
+  align-items:baseline;gap:18px;padding:11px 16px}
+.scale__row .px{font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--dimmer);
+  font-variant-numeric:tabular-nums}
+.scale__row .sample{font-weight:900;text-transform:uppercase;line-height:1.05;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ---------------- BUTTONS ---------------- */
+.btnrow{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.b{display:inline-flex;align-items:center;justify-content:center;font-family:var(--f-body);
+  font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.06em;line-height:1;
+  padding:16px 32px;min-height:48px;border:2px solid transparent;border-radius:4px;
+  text-decoration:none;cursor:pointer;
+  transition:background .2s cubic-bezier(.2,.7,.3,1),color .2s cubic-bezier(.2,.7,.3,1),
+             border-color .2s cubic-bezier(.2,.7,.3,1),box-shadow .12s cubic-bezier(.2,.7,.3,1),
+             transform .12s cubic-bezier(.2,.7,.3,1)}
+.b--primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.b--primary:hover{background:#3A3B3D;border-color:#3A3B3D}
+.b--invert{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.b--invert:hover{background:var(--grey);border-color:var(--grey)}
+.b--outline{background:transparent;color:var(--paper);border-color:var(--paper)}
+.b--outline:hover{background:var(--paper);color:var(--ink)}
+.b--outline-dark{background:transparent;color:var(--ink);border-color:var(--ink)}
+.b--outline-dark:hover{background:var(--ink);color:var(--paper)}
+.b--blue{background:var(--blue);color:var(--ink);border-color:var(--blue)}
+.b--green{background:var(--green);color:var(--ink);border-color:var(--green)}
+.b--pink{background:var(--pink);color:var(--ink);border-color:var(--pink)}
+.b--sticker{border-radius:2px;box-shadow:4px 4px 0 var(--ink)}
+.b--sticker:hover{box-shadow:2px 2px 0 var(--ink);transform:translate(2px,2px)}
+.b--sticker:active{box-shadow:0 0 0 var(--ink);transform:translate(4px,4px)}
+.b--sm{padding:10px 20px;min-height:40px;font-size:12px}
+.b--lg{padding:20px 44px;min-height:56px;font-size:16px}
+.b--disabled{background:#E5E5E5;color:#6B6D70;border-color:#E5E5E5;cursor:not-allowed}
+
+.panel{border-radius:4px;padding:30px}
+.panel--paper{background:var(--paper);color:var(--ink)}
+.panel--grey{background:var(--grey);color:var(--ink)}
+.panel--green{background:var(--green);color:var(--ink)}
+.panel__cap{font-weight:900;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:#6B6D70;margin-bottom:18px}
+.panel--green .panel__cap{color:#3A3B3D}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+
+/* ---------------- BADGES / CARDS / BAR ---------------- */
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.bd{display:inline-flex;align-items:center;font-weight:900;font-size:11px;text-transform:uppercase;
+  letter-spacing:.06em;line-height:1;padding:6px 10px;border-radius:999px;color:var(--ink);background:var(--grey)}
+.bd--black{background:var(--ink);color:var(--paper);box-shadow:0 0 0 1px var(--rule-2)}
+.bd--blue{background:var(--blue)}.bd--green{background:var(--green)}.bd--pink{background:var(--pink)}
+.bd--sq{border-radius:2px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(184px,1fr));gap:18px}
+.card__media{aspect-ratio:4/5;border-radius:4px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center}
+.card__media span{font-family:var(--f-display);font-size:13px;letter-spacing:.1em;
+  text-transform:uppercase;color:#00000055}
+.card__flag{position:absolute;top:12px;left:12px}
+.card__title{font-weight:900;font-size:14px;text-transform:uppercase;line-height:1.3;margin:12px 0 3px}
+.card__price{font-size:14px;font-weight:400;margin:0;color:var(--dim)}
+.card__price s{color:var(--dimmer);margin-right:8px}
+
+.bar{text-align:center;padding:13px 16px;font-weight:900;font-size:12px;
+  text-transform:uppercase;letter-spacing:.06em;border-radius:3px;margin-bottom:10px}
+.bar--black{background:var(--ink);color:var(--paper);box-shadow:0 0 0 1px var(--rule-2)}
+.bar--blue{background:var(--blue);color:var(--ink)}
+.bar--green{background:var(--green);color:var(--ink)}
+.bar--pink{background:var(--pink);color:var(--ink)}
+
+/* ---------------- SHAPE / SPACE / SHADOW ---------------- */
+.shapes{display:flex;flex-wrap:wrap;gap:18px}
+.shape{width:104px;text-align:center}
+.shape__box{height:74px;background:var(--paper);margin-bottom:9px}
+.shape small{font-size:11px;font-weight:900;letter-spacing:.09em;color:var(--dim)}
+.ramp{display:flex;align-items:flex-end;gap:7px;flex-wrap:wrap}
+.ramp__i{text-align:center}
+.ramp__b{background:var(--blue);width:26px}
+.ramp__i small{display:block;font-size:10px;font-weight:900;color:var(--dimmer);margin-top:6px;
+  font-variant-numeric:tabular-nums}
+.shadows{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:26px;
+  background:var(--paper);padding:34px;border-radius:4px}
+.shadow__b{height:82px;background:var(--paper);border-radius:4px;margin-bottom:12px;
+  border:1px solid #E0E0E0}
+.shadow small{font-size:11px;font-weight:900;letter-spacing:.08em;color:#6B6D70}
+.sh-sm{box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.sh-md{box-shadow:0 4px 12px rgba(0,0,0,.10)}
+.sh-lg{box-shadow:0 12px 32px rgba(0,0,0,.14)}
+.sh-hard{box-shadow:4px 4px 0 #000;border-color:#000;border-radius:2px}
+
+/* ---------------- LOGO ---------------- */
+.logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.logo{border:1px solid var(--rule-2);border-radius:4px;padding:34px;display:flex;
+  align-items:center;justify-content:center;min-height:172px}
+.logo--dark{background:var(--ink)}
+.logo--light{background:var(--paper)}
+.logo img{max-width:100%;height:auto}
+.logo--wm img{width:200px}
+.logo--gl img{width:96px}
+.clearspace{position:relative;background:var(--paper);border-radius:4px;padding:0;
+  display:flex;align-items:center;justify-content:center;min-height:230px}
+.clearspace__inner{position:relative;padding:56px}
+.clearspace__inner::before{content:"";position:absolute;inset:0;border:1px dashed #999B9E}
+.clearspace__inner img{width:190px}
+.clearspace__x{position:absolute;font-weight:900;font-size:11px;letter-spacing:.1em;color:#6B6D70}
+
+/* ---------------- TABLES ---------------- */
+.tablewrap{overflow-x:auto;border:1px solid var(--rule-2);border-radius:4px}
+table.data{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+table.data th{text-align:left;font-weight:900;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim);padding:13px 16px;background:var(--ground-2);
+  border-bottom:1px solid var(--rule-2);white-space:nowrap}
+table.data td{padding:12px 16px;border-bottom:1px solid var(--rule);color:#DCDDDE;vertical-align:top}
+table.data tr:last-child td{border-bottom:0}
+table.data td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---------------- LISTS ---------------- */
+ol.rules{counter-reset:r;list-style:none;padding:0;margin:0;max-width:var(--measure)}
+ol.rules li{counter-increment:r;position:relative;padding-left:42px;margin-bottom:15px;color:#DCDDDE}
+ol.rules li::before{content:counter(r,decimal-leading-zero);position:absolute;left:0;top:1px;
+  font-weight:900;font-size:12px;letter-spacing:.06em;color:var(--blue);
+  font-variant-numeric:tabular-nums}
+ul.plain{list-style:none;padding:0;margin:0;max-width:var(--measure)}
+ul.plain li{position:relative;padding-left:22px;margin-bottom:11px;color:#DCDDDE}
+ul.plain li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:2px;background:var(--pink)}
+
+.callout{border-left:3px solid var(--pink);padding:18px 22px;background:var(--ground-2);
+  border-radius:0 4px 4px 0;margin:22px 0}
+.callout p:last-child{margin-bottom:0}
+.callout--blue{border-left-color:var(--blue)}
+
+footer{border-top:1px solid var(--rule);padding:44px 0 62px;color:var(--dimmer);font-size:13px}
+footer p{color:var(--dimmer);max-width:var(--measure)}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <img class="hero__mark" src="assets/ss-wordmark-white.png" alt="Sunday Swagger">
+    <h1>Own it <span class="hl">on screen</span> the way you own it on the course</h1>
+    <p class="lead">The working design system for Sunday Swagger email, web, and paid media — every value traced back to the brand guidelines, and every gap in them labeled as a gap.</p>
+    <div class="meta">
+      <span>Version 1.0</span>
+      <span>Email · Web · Ads</span>
+      <span>Built from the 8-page brand book</span>
+    </div>
+  </header>
+
+  <!-- ============ 0.01 HOW TO READ ============ -->
+  <section>
+    <div class="marker"><span class="n">0.01</span><span class="t">How to read this</span><span class="bar"></span></div>
+    <h2 class="sec">Three kinds of rule, and only one of them is brand law</h2>
+    <p>The brand guidelines cover color, typography, and logo. They say nothing about buttons, shadows, corner radii, spacing, or layout — so a large part of any usable design system has to be <em>designed</em>, not transcribed. Rather than blur that line, every rule here carries its source.</p>
+    <div class="keygrid">
+      <div><span class="tag tag--brand">BRAND</span><p>Stated in the guidelines. Don't change it without brand approval.</p></div>
+      <div><span class="tag tag--site">SITE</span><p>Measured from production Sunday Swagger page markup.</p></div>
+      <div><span class="tag tag--sys">SYSTEM</span><p>Designed here to fill a gap. Overrule it freely — then write down your call.</p></div>
+    </div>
+    <div class="callout">
+      <p><strong>The gap you should know about.</strong> <code>sundayswagger.com</code> is blocked by this environment's network egress policy, so the live storefront could not be crawled. Buttons, shadows, radii and spacing below are <strong>SYSTEM</strong> — reasoned from the brand's stated aesthetic, not copied off production. Section 0.11 lists four ways to close that in about two minutes.</p>
+    </div>
+  </section>
+
+  <!-- ============ 0.02 FOUNDATION ============ -->
+  <section>
+    <div class="marker"><span class="n">0.02</span><span class="t">Foundation</span><span class="bar"></span></div>
+    <h2 class="sec">One sentence governs every decision below</h2>
+    <p class="lead">“Keep a clean, modern, and sleek look, while allowing our loud designs to speak for themselves.”</p>
+    <p>That is the entire system compressed. The prints on the product are the loud part. The frame around them — layout, buttons, type, chrome — stays black and white and gets out of the way. When a composition feels wrong, the fix is almost always to take color <em>out</em>.</p>
+    <h3 class="sub">Mission · Vision · Positioning</h3>
+    <div class="tablewrap">
+      <table class="data">
+        <tbody>
+          <tr><th style="width:170px">Mission</th><td>Empowering the individual to own it.</td></tr>
+          <tr><th>Vision</th><td>We are committed to high-quality products that redefine the new classic.</td></tr>
+          <tr><th>Positioning</th><td>Own your swagger.</td></tr>
+          <tr><th>Personality</th><td>Daring · Innovative · Inclusive · Confident · Stylish</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub">Voice</h3>
+    <p>Confident, warm, funny, never smug. Golf-adjacent but never gatekeeping — the brand book's own words are “including you non-golfers out there.” Second person. Short sentences. Uppercase for the shout, sentence case for the talk. Ad and email headlines cap at six words.</p>
+  </section>
+
+  <!-- ============ 0.03 COLOR ============ -->
+  <section>
+    <div class="marker"><span class="n">0.03</span><span class="t">Color</span><span class="bar"></span></div>
+    <h2 class="sec">Black and white are the brand. Everything else is an accent.</h2>
+    <p>Six values, and a strict hierarchy between them. Grey is a background, never type. Blue, green and pink are — in the guidelines' own words — for “lines or accents on specific design elements or words in copy.” One accent per composition.</p>
+
+    <h3 class="sub">Primary <span class="tag tag--brand" style="margin-left:8px">BRAND</span></h3>
+    <div class="swatches">
+      <div class="sw"><div class="sw__chip" style="background:#000000;box-shadow:inset 0 0 0 1px #25262A"></div>
+        <div class="sw__body"><div class="sw__name">Black</div>
+          <dl><dt>HEX</dt><dd>#000000</dd><dt>CMYK</dt><dd>0 / 0 / 0 / 100</dd><dt>RGB</dt><dd>0 / 0 / 0</dd></dl>
+          <div class="sw__note">Type, buttons, backgrounds, logo. The default CTA fill.</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#FFFFFF"></div>
+        <div class="sw__body"><div class="sw__name">White</div>
+          <dl><dt>HEX</dt><dd>#FFFFFF</dd><dt>CMYK</dt><dd>0 / 0 / 0 / 0</dd><dt>RGB</dt><dd>255 / 255 / 255</dd></dl>
+          <div class="sw__note">Type, backgrounds, logo. Equal partner to black, not a fallback.</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#ECECEC"></div>
+        <div class="sw__body"><div class="sw__name">Grey · secondary</div>
+          <dl><dt>HEX</dt><dd>#ECECEC</dd><dt>CMYK</dt><dd>6 / 4 / 4 / 0</dd><dt>RGB</dt><dd>236 / 236 / 236</dd></dl>
+          <div class="sw__note">Backgrounds and section separation only. 1.18:1 on white — never a text color.</div></div></div>
+    </div>
+
+    <h3 class="sub">Tertiary accents <span class="tag tag--brand" style="margin-left:8px">BRAND</span></h3>
+    <div class="swatches">
+      <div class="sw"><div class="sw__chip" style="background:#00B3D8"></div>
+        <div class="sw__body"><div class="sw__name">Blue</div>
+          <dl><dt>HEX</dt><dd>#00B3D8</dd><dt>CMYK</dt><dd>77 / 4 / 11 / 0</dd><dt>RGB</dt><dd>0 / 179 / 216</dd></dl>
+          <div class="sw__note">Text only on black (8.44:1). On white it is decoration, not type.</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#C2FC08"></div>
+        <div class="sw__body"><div class="sw__name">Green</div>
+          <dl><dt>HEX</dt><dd>#C2FC08</dd><dt>CMYK</dt><dd>29 / 0 / 100 / 0</dd><dt>RGB</dt><dd>194 / 252 / 8</dd></dl>
+          <div class="sw__note">The loudest value in the palette. 1.22:1 on white — effectively invisible there.</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#EE4492"></div>
+        <div class="sw__body"><div class="sw__name">Pink</div>
+          <dl><dt>HEX</dt><dd>#EE4492</dd><dt>CMYK</dt><dd>0 / 88 / 4 / 0</dd><dt>RGB</dt><dd>238 / 68 / 146</dd></dl>
+          <div class="sw__note">The only accent that reads as type on white — at 18px bold and up.</div></div></div>
+    </div>
+
+    <div class="callout callout--blue">
+      <p><strong>Print swatches don't match the spec'd hex.</strong> The chips printed in the guidelines are the CMYK builds converted back to RGB: blue renders <code>#1CBFD5</code>, green <code>#B0D235</code>, pink <code>#EC048C</code>. Use the spec'd hex on screen and hand the CMYK to print vendors. Green is the widest gap — the CMYK build is a much duller olive-lime than the electric <code>#C2FC08</code>, so if the electric green matters on a printed piece, ask for a spot or extended-gamut match.</p>
+    </div>
+  </section>
+
+  <!-- ============ 0.04 CONTRAST ============ -->
+  <section>
+    <div class="marker"><span class="n">0.04</span><span class="t">Contrast · the arithmetic</span><span class="bar"></span></div>
+    <h2 class="sec">Accent fills take black labels. This isn't taste — it's the ratio.</h2>
+    <p>Every tile below is rendered in the actual color pair. Ratios are WCAG 2.x relative luminance against the spec'd hex. The two failures are the ones most likely to ship by accident, because white-on-color is the reflex.</p>
+
+    <div class="proof" style="margin-top:24px">
+      <div class="proof__cell" style="background:#00B3D8;color:#FFFFFF">
+        <div class="s">Shop the drop</div>
+        <div class="r"><span class="verdict v-fail">FAIL</span> 2.49:1 · white on blue</div></div>
+      <div class="proof__cell" style="background:#00B3D8;color:#000000">
+        <div class="s">Shop the drop</div>
+        <div class="r"><span class="verdict v-pass">AAA</span> 8.44:1 · black on blue</div></div>
+
+      <div class="proof__cell" style="background:#C2FC08;color:#FFFFFF">
+        <div class="s">Shop the drop</div>
+        <div class="r"><span class="verdict v-fail">FAIL</span> 1.22:1 · white on green</div></div>
+      <div class="proof__cell" style="background:#C2FC08;color:#000000">
+        <div class="s">Shop the drop</div>
+        <div class="r"><span class="verdict v-pass">AAA</span> 17.22:1 · black on green</div></div>
+
+      <div class="proof__cell" style="background:#EE4492;color:#FFFFFF">
+        <div class="s">Shop the drop</div>
+        <div class="r"><span class="verdict v-warn">LARGE ONLY</span> 3.57:1 · white on pink</div></div>
+      <div class="proof__cell" style="background:#EE4492;color:#000000">
+        <div class="s">Shop the drop</div>
+        <div class="r"><span class="verdict v-pass">AA</span> 5.88:1 · black on pink</div></div>
+    </div>
+
+    <h3 class="sub">The five rules that fall out of it</h3>
+    <ol class="rules">
+      <li><strong>Never white text on blue, green or pink.</strong> Green-on-white is effectively invisible at 1.22:1.</li>
+      <li><strong>Accent-filled buttons take black labels.</strong> All three pass comfortably that way.</li>
+      <li><strong>Blue and green work as text only on black.</strong> On white they're underlines, rules, dots, and fills behind black type.</li>
+      <li><strong>Pink is the one accent that reads as type on white</strong> — 18px bold or 24px regular and up. Below that, black.</li>
+      <li><strong>Grey #ECECEC is never a text color.</strong> For muted copy use <code>#6B6D70</code> (5.9:1 on white).</li>
+    </ol>
+  </section>
+
+  <!-- ============ 0.05 TYPOGRAPHY ============ -->
+  <section>
+    <div class="marker"><span class="n">0.05</span><span class="t">Typography</span><span class="bar"></span></div>
+    <h2 class="sec">Four faces, each with exactly one job</h2>
+
+    <div class="spec">
+      <div class="spec__label"><b>Display</b><span>Futura PT Cond. Extra Bold</span><span>Adobe Fonts</span><span>always uppercase</span><span>tracking 0.01em</span><span>line-height 0.92</span></div>
+      <p class="sp-display">Style and performance</p>
+      <p style="margin:16px 0 0;font-size:13.5px;color:var(--dim);max-width:60ch">One display headline per screen, per email, per ad. Two competing display lines cancel each other out. <strong>The specimen above is rendering in Tilt Warp</strong> — the guidelines' own named web backup for Futura — which is exactly what your site shows when the Adobe Fonts project isn't loaded.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label"><b>Subhead</b><span>Lato Black (900)</span><span>Google Fonts</span><span>uppercase</span><span>tracking 0</span><span>line-height 1.3</span></div>
+      <p class="sp-subhead">Empowering the individual to own it</p>
+      <p style="margin:14px 0 0;font-size:13.5px;color:var(--dim);max-width:60ch">Sits above or below the display line, never beside it. This is also what production section headings already use, at 20px.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label"><b>Body</b><span>Lato Medium (500)</span><span>sentence case</span><span>tracking 0.02em</span><span>line-height 1.6</span><span>measure ≤ 680px</span></div>
+      <p class="sp-body">Swagger is badass-ness in its purest form. It's got nothing to do with being perfect or right. It's about self-acceptance and others knowing you're comfortable just being you. Staying loose is the name of the game — that's our philosophy and approach to all we do.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label"><b>Script accent</b><span>Starlit Drive</span><span>commercial license</span><span>lowercase</span><span>artwork, not live text</span></div>
+      <p class="sp-script">own your swagger</p>
+      <p style="margin:14px 0 0;font-size:13.5px;color:var(--dim);max-width:60ch">This is the <em>logo</em> font — every extra use costs the logo a little of its distinctiveness. One or two lowercase words, never a sentence, never below 28px, and set as artwork rather than live web text since it isn't a webfont you can rely on. <em>Shown here in a system italic; the real face is in the brand font folder.</em></p>
+    </div>
+
+    <h3 class="sub">Print specimen the web scale derives from <span class="tag tag--brand" style="margin-left:8px">BRAND</span></h3>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Element</th><th>Face</th><th>Case</th><th class="num">Size</th><th class="num">Tracking</th><th class="num">Leading</th></tr></thead>
+        <tbody>
+          <tr><td>Headline</td><td>Futura PT Cond. Extra Bold</td><td>UPPERCASE</td><td class="num">62 pt</td><td class="num">10 → 0.01em</td><td class="num">—</td></tr>
+          <tr><td>Subtitle</td><td>Lato Black</td><td>UPPERCASE</td><td class="num">30 pt</td><td class="num">0</td><td class="num">—</td></tr>
+          <tr><td>Accent</td><td>Starlit</td><td>lowercase</td><td class="num">68 pt</td><td class="num">0</td><td class="num">—</td></tr>
+          <tr><td>Body</td><td>Lato Medium</td><td>Sentence</td><td class="num">10 pt</td><td class="num">20 → 0.02em</td><td class="num">16 pt → 1.6</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:13.5px;color:var(--dim)">Tracking is InDesign units — divide by 1000 for em. Body leading of 16pt on 10pt type is where <code>line-height: 1.6</code> comes from.</p>
+
+    <h3 class="sub">Web scale <span class="tag tag--sys" style="margin-left:8px">SYSTEM</span></h3>
+    <div class="scale">
+      <div class="scale__row"><span class="px">96 px</span><span class="sample" style="font-size:44px;font-family:var(--f-display);letter-spacing:.01em">Hero display</span></div>
+      <div class="scale__row"><span class="px">72 px</span><span class="sample" style="font-size:36px;font-family:var(--f-display);letter-spacing:.01em">Display XL</span></div>
+      <div class="scale__row"><span class="px">56 px</span><span class="sample" style="font-size:30px;font-family:var(--f-display);letter-spacing:.01em">Display LG</span></div>
+      <div class="scale__row"><span class="px">40 px</span><span class="sample" style="font-size:26px">Section headline</span></div>
+      <div class="scale__row"><span class="px">32 px</span><span class="sample" style="font-size:22px">Section headline sm</span></div>
+      <div class="scale__row"><span class="px">24 px</span><span class="sample" style="font-size:19px">Subhead</span></div>
+      <div class="scale__row"><span class="px">20 px</span><span class="sample" style="font-size:17px">Site heading <span style="font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--dimmer);font-size:13px">— measured in production</span></span></div>
+      <div class="scale__row"><span class="px">18 px</span><span class="sample" style="font-size:16px">Body large / table cell</span></div>
+      <div class="scale__row"><span class="px">16 px</span><span class="sample" style="font-size:15px">Body</span></div>
+      <div class="scale__row"><span class="px">14 px</span><span class="sample" style="font-size:14px">Button label / card title</span></div>
+      <div class="scale__row"><span class="px">12 px</span><span class="sample" style="font-size:12px;letter-spacing:.06em">Eyebrow / badge</span></div>
+      <div class="scale__row"><span class="px">11 px</span><span class="sample" style="font-size:11px;letter-spacing:.06em">Micro label</span></div>
+    </div>
+
+    <div class="callout">
+      <p><strong>A decision you need to make.</strong> Production body copy currently renders in <strong>Work Sans</strong>, not Lato — while the brand book specifies Lato throughout. So the storefront is running a Work Sans body against Lato Black headings.</p>
+      <p>Recommendation: treat Lato as canonical and migrate the theme. Work Sans has no standing in the brand book, and every off-book face is one more thing to keep in sync across email, ads and web. Until then, use the Work Sans-first stack when <em>editing existing pages</em> so new blocks don't visibly differ from the ones beside them, and the Lato-first stack for everything new. One of the two should win — the problem is both running.</p>
+    </div>
+  </section>
+
+  <!-- ============ 0.06 LOGO ============ -->
+  <section>
+    <div class="marker"><span class="n">0.06</span><span class="t">Logo</span><span class="bar"></span></div>
+    <h2 class="sec">Black or white. Nothing else, ever.</h2>
+    <p>The script wordmark is primary; the shaka in a golf glove is secondary. Both reproduce in black or white only, on a branded color background. Never cropped, never recolored, never with elements added.</p>
+    <div class="logos" style="margin-top:22px">
+      <div class="logo logo--dark logo--wm"><img src="assets/ss-wordmark-white.png" alt="Sunday Swagger wordmark, white"></div>
+      <div class="logo logo--light logo--wm"><img src="assets/ss-wordmark-black.png" alt="Sunday Swagger wordmark, black"></div>
+      <div class="logo logo--dark logo--gl"><img src="assets/ss-glove-white.png" alt="Sunday Swagger glove mark, white"></div>
+      <div class="logo logo--light logo--gl"><img src="assets/ss-glove-black.png" alt="Sunday Swagger glove mark, black"></div>
+    </div>
+
+    <h3 class="sub">Clear space = the height of the logo, on all four sides</h3>
+    <div class="clearspace">
+      <div class="clearspace__inner">
+        <img src="assets/ss-wordmark-black.png" alt="Wordmark with its minimum clear space indicated">
+        <span class="clearspace__x" style="top:26px;left:50%;transform:translateX(-50%)">x</span>
+        <span class="clearspace__x" style="bottom:26px;left:50%;transform:translateX(-50%)">x</span>
+        <span class="clearspace__x" style="left:24px;top:50%;transform:translateY(-50%)">x</span>
+        <span class="clearspace__x" style="right:24px;top:50%;transform:translateY(-50%)">x</span>
+      </div>
+    </div>
+    <p style="margin-top:14px;font-size:13.5px;color:var(--dim)">Nothing — type, photography, illustration, partner marks — enters the dashed field. Alongside partner logos such as the PGA lockup, all marks sit at approximately equal visual size.</p>
+    <p style="font-size:13.5px;color:var(--dim)"><strong>These files are raster traces</strong> pulled out of the guidelines PDF at 300dpi. Fine for web and email at display sizes; for print and large-format, use the original vector files from the brand folder.</p>
+  </section>
+
+  <!-- ============ 0.07 BUTTONS ============ -->
+  <section>
+    <div class="marker"><span class="n">0.07</span><span class="t">Buttons</span><span class="bar"></span><span class="tag tag--sys">SYSTEM</span></div>
+    <h2 class="sec">Square-ish, uppercase, tracked out — contrast does the work</h2>
+    <p>Lato Black at 14px, <code>0.06em</code> tracking, <code>16px 32px</code> padding, <code>48px</code> minimum height, <code>4px</code> radius, <code>2px</code> border. Black fill is the default CTA everywhere; accent fills are for the single loudest action on a page.</p>
+
+    <h3 class="sub">On dark</h3>
+    <div class="btnrow">
+      <a class="b b--invert" href="#0">Shop new arrivals</a>
+      <a class="b b--outline" href="#0">View lookbook</a>
+      <a class="b b--blue" href="#0">Join the drop list</a>
+    </div>
+
+    <h3 class="sub">On light</h3>
+    <div class="pair">
+      <div class="panel panel--paper">
+        <div class="panel__cap">Primary + secondary</div>
+        <div class="btnrow">
+          <a class="b b--primary" href="#0">Add to cart</a>
+          <a class="b b--outline-dark" href="#0">Size guide</a>
+        </div>
+        <div class="btnrow" style="margin-top:14px">
+          <a class="b b--primary b--sm" href="#0">Small</a>
+          <a class="b b--primary b--lg" href="#0">Large</a>
+          <span class="b b--disabled" aria-disabled="true">Sold out</span>
+        </div>
+      </div>
+      <div class="panel panel--grey">
+        <div class="panel__cap">Accent — one per page, black labels</div>
+        <div class="btnrow">
+          <a class="b b--blue" href="#0">Shop the drop</a>
+          <a class="b b--green" href="#0">Last chance</a>
+          <a class="b b--pink" href="#0">Get 20% off</a>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub">Sticker modifier — promo only</h3>
+    <div class="panel panel--green">
+      <div class="panel__cap">Hard offset shadow · 4px 4px 0 #000 · presses in on click</div>
+      <div class="btnrow">
+        <a class="b b--primary b--sticker" href="#0">Shop the sale</a>
+        <a class="b b--invert b--sticker" href="#0">See all drops</a>
+      </div>
+    </div>
+    <p style="margin-top:16px;font-size:13.5px;color:var(--dim)">The sticker treatment reads as screen-print — which is literally what the product is. That's why it earns its place. It's also the loudest thing in the system, so it stops working if it's always on.</p>
+  </section>
+
+  <!-- ============ 0.08 COMPONENTS ============ -->
+  <section>
+    <div class="marker"><span class="n">0.08</span><span class="t">Components</span><span class="bar"></span><span class="tag tag--sys">SYSTEM</span></div>
+    <h2 class="sec">Badges, cards, and the one place accent runs full bleed</h2>
+
+    <h3 class="sub">Badges — the best home for accent color</h3>
+    <div class="badges">
+      <span class="bd bd--black">New drop</span>
+      <span class="bd bd--blue">Restocked</span>
+      <span class="bd bd--green">Last chance</span>
+      <span class="bd bd--pink">Best seller</span>
+      <span class="bd">Limited</span>
+      <span class="bd bd--green bd--sq">-30%</span>
+    </div>
+    <p style="margin-top:14px;font-size:13.5px;color:var(--dim)">Small, high-frequency, black type on a bright chip. Pill radius is reserved for badges and filter chips — nothing else in the system gets one.</p>
+
+    <h3 class="sub">Announcement bar — accent full-bleed, black text</h3>
+    <div class="bar bar--black">Free shipping over $100 · Free 30-day returns</div>
+    <div class="bar bar--blue">New drop live now · Shop before it's gone</div>
+    <div class="bar bar--green">Final hours · 30% off sitewide</div>
+    <div class="bar bar--pink">Members get early access · Join free</div>
+
+    <h3 class="sub">Product cards — chrome stays out of the way</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="card__media" style="background:linear-gradient(135deg,#00B3D8 0%,#0A8AA8 100%)">
+          <span class="card__flag bd bd--black">New</span><span>Product image 4:5</span></div>
+        <p class="card__title">The Hazard Polo</p>
+        <p class="card__price">$74</p>
+      </div>
+      <div class="card">
+        <div class="card__media" style="background:linear-gradient(135deg,#C2FC08 0%,#8CB806 100%)">
+          <span class="card__flag bd bd--pink">-30%</span><span>Product image 4:5</span></div>
+        <p class="card__title">Fairway Q-Zip</p>
+        <p class="card__price"><s>$98</s>$68</p>
+      </div>
+      <div class="card">
+        <div class="card__media" style="background:linear-gradient(135deg,#EE4492 0%,#B62E6D 100%)">
+          <span>Product image 4:5</span></div>
+        <p class="card__title">Sunday Snapback</p>
+        <p class="card__price">$36</p>
+      </div>
+      <div class="card">
+        <div class="card__media" style="background:#ECECEC"><span>Product image 4:5</span></div>
+        <p class="card__title">Shaka Tee</p>
+        <p class="card__price">$42</p>
+      </div>
+    </div>
+    <p style="margin-top:16px;font-size:13.5px;color:var(--dim)">4:5 media, grey placeholder, 4px radius, a 1.03 zoom on hover. Title in Lato Black uppercase at 14px. The print on the polo is the content — the card is the frame.</p>
+  </section>
+
+  <!-- ============ 0.09 SHAPE ============ -->
+  <section>
+    <div class="marker"><span class="n">0.09</span><span class="t">Shape · space · depth</span><span class="bar"></span><span class="tag tag--sys">SYSTEM</span></div>
+    <h2 class="sec">Near-square, on a 4px grid, with two shadow families that never mix</h2>
+
+    <h3 class="sub">Radius</h3>
+    <div class="shapes">
+      <div class="shape"><div class="shape__box" style="border-radius:0"></div><small>0 · none</small></div>
+      <div class="shape"><div class="shape__box" style="border-radius:2px"></div><small>2 · sticker</small></div>
+      <div class="shape"><div class="shape__box" style="border-radius:4px"></div><small>4 · default</small></div>
+      <div class="shape"><div class="shape__box" style="border-radius:8px"></div><small>8 · media</small></div>
+      <div class="shape"><div class="shape__box" style="border-radius:999px"></div><small>pill · badges</small></div>
+    </div>
+    <p style="margin-top:16px">The brand's energy comes from stark contrast and a script logo, not from soft corners. <code>4px</code> is the default on buttons, inputs and cards; pills are reserved for badges and filter chips only.</p>
+
+    <h3 class="sub">Spacing — 4px base</h3>
+    <div class="ramp">
+      <div class="ramp__i"><div class="ramp__b" style="height:4px"></div><small>4</small></div>
+      <div class="ramp__i"><div class="ramp__b" style="height:8px"></div><small>8</small></div>
+      <div class="ramp__i"><div class="ramp__b" style="height:12px"></div><small>12</small></div>
+      <div class="ramp__i"><div class="ramp__b" style="height:16px"></div><small>16</small></div>
+      <div class="ramp__i"><div class="ramp__b" style="height:24px"></div><small>24</small></div>
+      <div class="ramp__i"><div class="ramp__b" style="height:32px"></div><small>32</small></div>
+      <div class="ramp__i"><div class="ramp__b" style="height:40px"></div><small>40</small></div>
+      <div class="ramp__i"><div class="ramp__b" style="height:56px"></div><small>56</small></div>
+      <div class="ramp__i"><div class="ramp__b" style="height:72px"></div><small>72</small></div>
+      <div class="ramp__i"><div class="ramp__b" style="height:96px"></div><small>96</small></div>
+      <div class="ramp__i"><div class="ramp__b" style="height:128px"></div><small>128</small></div>
+    </div>
+
+    <h3 class="sub">Elevation</h3>
+    <div class="shadows">
+      <div><div class="shadow__b sh-sm"></div><small>SM · 0 1px 2px 8%</small></div>
+      <div><div class="shadow__b sh-md"></div><small>MD · 0 4px 12px 10%</small></div>
+      <div><div class="shadow__b sh-lg"></div><small>LG · 0 12px 32px 14%</small></div>
+      <div><div class="shadow__b sh-hard"></div><small>HARD · 4px 4px 0 #000</small></div>
+    </div>
+    <p style="margin-top:16px">Soft is the restrained default — dropdowns, modals, sticky bars. The hard offset is the brand-expressive one, for promo buttons, drop banners and ad CTAs. <strong>Never mix the two families in one composition</strong>; the page immediately reads as two designs stapled together.</p>
+  </section>
+
+  <!-- ============ 0.10 EMAIL & ADS ============ -->
+  <section>
+    <div class="marker"><span class="n">0.10</span><span class="t">Email &amp; ads</span><span class="bar"></span><span class="tag tag--sys">SYSTEM</span></div>
+    <h2 class="sec">Gmail will not load your display face. Plan for it.</h2>
+    <p>Gmail, Outlook desktop and Yahoo all strip webfonts, so Futura PT Condensed and Tilt Warp won't render for most of your list. If a display headline is doing brand work — a drop announcement, a sale number, the hero — <strong>export it as an image</strong> with real alt text and a background color behind it, so it still reads when images are off. Everything else stays live text.</p>
+
+    <div class="tablewrap" style="margin-top:20px">
+      <table class="data">
+        <thead><tr><th>Email slot</th><th>Stack</th><th>What most of your list sees</th></tr></thead>
+        <tbody>
+          <tr><td>Display headline</td><td><code>'Futura PT Condensed','Tilt Warp','Arial Narrow',Arial</code></td><td>Arial Narrow</td></tr>
+          <tr><td>Subhead</td><td><code>Lato,'Helvetica Neue',Helvetica,Arial</code> · 900</td><td>Arial bold</td></tr>
+          <tr><td>Body</td><td><code>Lato,'Helvetica Neue',Helvetica,Arial</code> · 500</td><td>Helvetica / Arial</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">Email frame</h3>
+    <ul class="plain">
+      <li>600px body, single column, table layout, inline styles, bulletproof VML buttons.</li>
+      <li>Outer canvas <code>#ECECEC</code> or <code>#000000</code>; content <code>#FFFFFF</code> or <code>#000000</code>.</li>
+      <li>Body copy never below 16px, fine print never below 12px, tap targets ≥48px.</li>
+      <li>Many clients auto-invert for dark mode — set <code>#000000</code> explicitly rather than relying on transparency, and ship the white logo PNG for dark sections.</li>
+      <li>One accent per send. Not five.</li>
+    </ul>
+
+    <h3 class="sub">Three ad templates</h3>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Template</th><th>Build</th><th>Use for</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Black slab</strong></td><td>Black field, white display headline, one accent word or underline, white outline CTA</td><td>Brand, new drop, top-of-funnel. Highest recognition, lowest noise.</td></tr>
+          <tr><td><strong>Product-forward</strong></td><td>White or <code>#ECECEC</code> field, full-bleed product photo, black headline, black solid CTA</td><td>Catalog, retargeting, best-sellers. Lets the print sell.</td></tr>
+          <tr><td><strong>Sticker promo</strong></td><td>Accent field, black display type, black CTA with hard offset shadow</td><td>Sale, last chance, code drops. Loudest asset in the system.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">Canvas &amp; safe areas</h3>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Placement</th><th class="num">Ratio</th><th class="num">Pixels</th><th>Safe area</th></tr></thead>
+        <tbody>
+          <tr><td>Meta / IG feed square</td><td class="num">1:1</td><td class="num">1080 × 1080</td><td>64px margin</td></tr>
+          <tr><td>Meta / IG feed portrait</td><td class="num">4:5</td><td class="num">1080 × 1350</td><td>64px margin</td></tr>
+          <tr><td>Stories · Reels · TikTok</td><td class="num">9:16</td><td class="num">1080 × 1920</td><td>Clear the top 14% and bottom 20%</td></tr>
+          <tr><td>Display leaderboard</td><td class="num">—</td><td class="num">728 × 90</td><td>Glove mark only — the wordmark is unreadable here</td></tr>
+          <tr><td>Display MPU</td><td class="num">—</td><td class="num">300 × 250</td><td>16px margin</td></tr>
+          <tr><td>Display half-page</td><td class="num">—</td><td class="num">300 × 600</td><td>16px margin</td></tr>
+          <tr><td>Pinterest</td><td class="num">2:3</td><td class="num">1000 × 1500</td><td>64px margin</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px"><strong>Headline ceiling: six words.</strong> If it needs more, it's a landing page, not an ad. And never set small type over a busy product print — that's precisely what the black slab template exists for.</p>
+  </section>
+
+  <!-- ============ 0.11 GAPS ============ -->
+  <section>
+    <div class="marker"><span class="n">0.11</span><span class="t">What's still open</span><span class="bar"></span></div>
+    <h2 class="sec">Close the live-site gap and half of this stops being a proposal</h2>
+    <p>Two of the three uses — website edits and ads that match the site — depend on matching the storefront exactly, and this environment can't reach <code>sundayswagger.com</code>. Any one of these fixes it, fastest first:</p>
+    <ol class="rules">
+      <li><strong>Paste the theme CSS.</strong> Shopify admin → Online Store → Themes → Edit code → <code>assets/*.css</code>. Even just the <code>:root</code> block and the <code>.button</code> rules is enough.</li>
+      <li><strong>View-source a product page</strong> and paste the <code>&lt;head&gt;</code> — that gives the font loads and CSS variables in one shot.</li>
+      <li><strong>Have your admin allow the domain</strong> for this session's egress policy, and it can be crawled directly.</li>
+      <li><strong>Screenshots</strong> of the homepage, a PDP and the cart drawer — enough to confirm radius, shadow and button treatment by eye.</li>
+    </ol>
+    <p>With any of those, every <strong>SYSTEM</strong> tag in sections 0.07–0.09 becomes <strong>SITE</strong>, and this stops being a well-reasoned proposal and starts being a mirror of what's actually shipping.</p>
+    <h3 class="sub">Two decisions waiting on you</h3>
+    <ul class="plain">
+      <li><strong>Lato or Work Sans for body copy?</strong> The brand book says Lato; production renders Work Sans. Pick one and the other gets retired.</li>
+      <li><strong>Is the electric green worth a spot color in print?</strong> The CMYK build lands materially duller than <code>#C2FC08</code>. If that green is load-bearing on printed pieces, it needs a spot or extended-gamut match.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p><strong>Sources.</strong> Sunday Swagger Brand Guidelines (8pp) — palette with CMYK/RGB builds, four typefaces with print specimen specs, logo options and exclusion zone, mission, vision, positioning, personality. Production page markup — Work Sans body, Lato 900 uppercase headings at 20px/1.3, and the <code>#F2F2F2</code> / <code>#E5E5E5</code> / <code>#E0E0E0</code> / <code>#D9D9D9</code> neutral set. Contrast ratios computed from the WCAG 2.x relative-luminance formula against the spec'd hex values. Logo marks traced from the guidelines PDF at 300dpi.</p>
+  </footer>
+
+</div>

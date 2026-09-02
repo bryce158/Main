@@ -126,3 +126,11 @@ VOICE
 - **Logo assets**: vector artwork traced out of the guidelines PDF at 300dpi and
   alpha-keyed. Good for web and email; **use the original vector files for print
   and large-format.**
+
+## Visual reference
+
+`reference.html` is the whole system rendered as one page — swatches with live
+contrast proofs, type specimens, buttons, badges, cards, the spacing ramp, and
+the shadow families. Open it locally, or view the published version:
+
+**https://claude.ai/code/artifact/31155845-4316-47db-afa7-be749b9c8169**
